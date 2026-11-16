@@ -1,9 +1,10 @@
 {
     "name": "review-guard",
-    "description": "Revisione di PR Python (skill + agent code-reviewer) e blocco dell'accesso ai file .env.",
-    "version": "1.0.0",
+    "description": "Revisione di codice Python (PR, sicurezza, controlli pre-commit), integrazione GitHub via MCP e protezione di segreti e branch principali.",
+    "version": "1.1.0",
     "author": {
         "name": "Matteo Vannini"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "privacyPolicyUrl": "https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
 }

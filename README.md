@@ -6,7 +6,7 @@ Marketplace di plugin per [Claude Code](https://code.claude.com/docs) (`matteo-p
 
 | Plugin | Descrizione |
 |---|---|
-| [`review-guard`](review-guard/) | Revisione di PR Python (skill `pr-review` e agent `code-reviewer`) e blocco dell'accesso ai file `.env`. |
+| [`review-guard`](review-guard/) | Revisione di codice Python (PR, sicurezza, controlli pre-commit), integrazione GitHub via MCP e protezione di segreti e branch principali. |
 
 ## Installazione
 
@@ -30,11 +30,13 @@ claude plugin marketplace update matteo-plugins
 ├── .claude-plugin/marketplace.json   # catalogo del marketplace
 ├── review-guard/                     # il plugin (vedi il suo README)
 │   ├── .claude-plugin/plugin.json
-│   ├── agents/  skills/  hooks/  scripts/
+│   ├── agents/  skills/  hooks/  scripts/  evals/
+│   ├── .mcp.json                     # server MCP GitHub
 │   └── README.md, LICENSE
 ├── .claude/                          # configurazione Claude Code di questo repo
 │   ├── settings.json                 # permessi e hook ruff format
 │   └── rules/database.md
+├── tests/                            # test pytest degli script hook
 └── CLAUDE.md                         # istruzioni di progetto per Claude
 ```
 
@@ -63,7 +65,18 @@ claude plugin validate ./review-guard
 claude plugin validate .
 ```
 
-Lint: `ruff check .`.
+Lint e test:
+
+```bash
+ruff check .
+pytest -q
+```
+
+Eval del plugin (avviano sessioni Claude reali, quindi hanno un costo):
+
+```bash
+claude plugin eval ./review-guard
+```
 
 Prima di pubblicare una modifica, alza `version` in `review-guard/.claude-plugin/plugin.json`: chi ha già installato il plugin riceve l'aggiornamento con `claude plugin marketplace update`.
 
