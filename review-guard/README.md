@@ -21,7 +21,14 @@ claude --plugin-dir ./review-guard
 
 ## Installazione
 
-Dal marketplace locale (cartella che contiene `.claude-plugin/marketplace.json`):
+Da GitHub:
+
+```bash
+claude plugin marketplace add m-vannini93/review-guard-plugin
+claude plugin install review-guard@matteo-plugins
+```
+
+Da una copia locale del repo (cartella che contiene `.claude-plugin/marketplace.json`):
 
 ```bash
 claude plugin marketplace add ~/Scrivania/first-plugin
