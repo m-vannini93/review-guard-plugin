@@ -1,0 +1,16 @@
+{
+    "name": "matteo-plugins",
+    "owner": {
+        "name": "Matteo Vannini"
+    },
+    "metadata": {
+        "description": "Plugin personali per Claude Code."
+    },
+    "plugins": [
+        {
+            "name": "review-guard",
+            "source": "./review-guard",
+            "description": "Revisione di PR Python (skill + agent code-reviewer) e blocco dell'accesso ai file .env."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+# ambiente e cache Python
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+
+# impostazioni personali di Claude Code (permessi locali, non da condividere)
+.claude/settings.local.json
+
+# segreti
+.env
+.env.*
+!.env.example

@@ -1,0 +1,11 @@
+{
+    "hooks": {
+        "PreToolUse": [{
+            "matcher": "Read|Edit|Write|Bash|Grep",
+            "hooks": [{
+                "type": "command",
+                "command": "python3 \"${CLAUDE_PLUGIN_ROOT}\"/scripts/protect_env.py"
+            }]
+        }]
+    }
+}

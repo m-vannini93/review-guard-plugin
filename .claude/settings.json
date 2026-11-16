@@ -1,0 +1,30 @@
+{
+    "permissions": {
+        "defaultMode": "acceptEdits",
+        "allow": [
+            "Bash(pytest *)",
+            "Bash(ruff *)"
+        ],
+        "ask": [
+            "Edit(./deploy/**)"
+        ],
+        "deny": [
+            "Bash(rm *)",
+            "Bash(git push *)",
+            "Read(./.env*)"
+        ]
+    },
+    "hooks": {
+        "PostToolUse": [
+            {
+                "matcher": "Edit|Write",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "\"$CLAUDE_PROJECT_DIR\"/.venv/bin/ruff format --quiet \"$CLAUDE_PROJECT_DIR\""
+                    }
+                ]
+            }
+        ]
+    }
+}
